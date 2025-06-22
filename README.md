@@ -17,3 +17,24 @@ src/main/java/com/evoting
 │   └── InMemoryService.java       # In-memory user store and UserDetailsService
 │
 └── EvotingApplication.java        # Main Spring Boot application
+
+
+--http://localhost:8080/api/public/hello :-> For public api accessible for all.
+
+Test via Postman:
+--POST http://localhost:8080/api/auth/login to get the token.
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+-> RETURNS Token 
+
+->Use the token to access:
+
+/api/secure/user (for role: USER or ADMIN)
+
+/api/secure/admin (only ADMIN)
+Authorization: Bearer eyJhbGciOi...
+
